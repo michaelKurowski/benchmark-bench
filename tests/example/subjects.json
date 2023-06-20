@@ -1,0 +1,15 @@
+{
+  "path": {
+    "name": "Path",
+    "values": [
+      "~/my-repo"
+    ]
+  },
+  "branch": {
+    "name": "Branch",
+    "values": [
+      "branch-a-to-test",
+      "branch-b-to-test"
+    ]
+  }
+}

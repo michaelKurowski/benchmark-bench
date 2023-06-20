@@ -43,18 +43,18 @@ for (const subject of allSubjects) {
   let results = [[parameterName]]
   for (const combo of allCombos) {
     console.log(`Running combo:`, combo)
-    const flagsFromCombos = Object.entries(combo).map(([key, value]) => `--${key}=${value}`).join(' ')
-    const flagsFromParams = Object.entries(params).map(([key, value]) => `--${key}=${value}`).join(' ')
-    const flags = `${flagsFromCombos} ${flagsFromParams}`
+    const flagsFromCombos = Object.entries(combo).map(([key, value]) => `--${key}=${value}`)
+    const flagsFromParams = Object.entries(params).map(([key, value]) => `--${key}=${value}`)
+    const flagsFromSubjects = Object.entries(subject).map(([key, value]) => `--${key}=${value}`)
+    const flags = [...flagsFromCombos, ...flagsFromParams, ...flagsFromSubjects]
     let attempts = 20
     
-
     const parameterValue = Object.values(combo)[0]
     // results.push([parameterValue])
     let attemptsSerie = []
 
     while (attempts--) {
-      const run = await $`node --max-old-space-size=${args.values.maxHeap} ./tests/${args.values.name}/index.js ${flagsFromCombos}`
+      const run = await $`node --max-old-space-size=${args.values.maxHeap} ./tests/${args.values.name}/index.js ${flags}`
       attemptsSerie.push(run.stdout.replace('\n', ''))
     }
 
