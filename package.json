@@ -1,0 +1,15 @@
+{
+  "name": "benchmark-bench",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Kurowski",
+  "license": "ISC",
+  "dependencies": {
+    "zx": "^7.2.2"
+  }
+}
